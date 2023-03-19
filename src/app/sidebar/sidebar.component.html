@@ -1,0 +1,59 @@
+<div
+  class="absolute top-0 left-0 z-50 w-64 h-full bg-[#274392] text-white transition duration-300 ease-in-out transform"
+  [class.translate-x-0]="isOpen"
+  [class.translate-x-full]="!isOpen"
+>
+  <div class="flex items-center justify-between p-4 border-b">
+    <img src="../../assets/img/rdg.png" alt="Logo" class="w-[150px]" />
+    <button
+      class="text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900"
+      (click)="toggleSidebar()"
+    >
+      <ng-container *ngIf="isOpen; else closedSidebar">
+        <svg class="h-6 w-6 ml-2 fill-current text-white" viewBox="0 0 24 24">
+          <path
+            d="M6 18L18 6M6 6l12 12"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </ng-container>
+      <ng-template #closedSidebar>
+        <div class="flex">
+          <img src="../../assets/img/logoRD.png" alt="Logo" class="w-12 h-12" />
+          <div
+            class="flex items-center p-2 text-white rounded-lg mr-[-50px] bg-[#274392]"
+          >
+            <i class="fas fa-bars text-[24px]"></i>
+          </div>
+        </div>
+      </ng-template>
+    </button>
+  </div>
+  <div class="p-4">
+    <ng-container *ngIf="isOpen">
+      <div class="flex flex-col gap-4">
+        <a
+          *ngFor="let item of menuItems"
+         
+          class="flex items-center px-2 py-3 text-white hover:bg-gray-200 hover:text-[#274392] rounded-lg transition duration-300 ease-in-out"
+        >
+          <i class="fas fa-{{ item.icon }}"></i>
+          <span class="mx-3 font-medium">{{ item.name }}</span>
+        </a>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!isOpen">
+      <div class="flex justify-end flex-col text-end items-end gap-4">
+        <a
+          *ngFor="let item of menuItems"
+          class="flex items-center p-2 text-white bg-[#3d5bac] hover:bg-gray-200 hover:text-[#274392] rounded-lg transition duration-300 ease-in-out"
+        >
+          <i class="fas fa-{{ item.icon }}"></i>
+        </a>
+      </div>
+    </ng-container>
+  </div>
+</div>
