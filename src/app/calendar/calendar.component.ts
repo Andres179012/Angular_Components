@@ -13,6 +13,7 @@ export class CalendarComponent {
   date = new Date();
   @Output() selected = new EventEmitter<Date[]>(); // Cambiar el tipo de EventEmitter a Date[]
 
+
   // Array con las fechas preestablecidas
   preselectedDates = [
     new Date('2023-03-19T00:00:00.000-07:00'),
@@ -26,6 +27,7 @@ export class CalendarComponent {
   constructor() {
     this.dates = this.getCalendarDays(this.date);
   }
+
 
   setMonth(inc: number) {
     const [year, month] = [this.date.getFullYear(), this.date.getMonth()];
@@ -68,11 +70,13 @@ export class CalendarComponent {
     return Array.from({ length }, (_, i) => start + i);
   }
 
+ 
+
   // Función para verificar si dos arrays de fechas tienen alguna fecha en común
   public isSameDate(dates1: Date[], dates2: Date[], ): boolean {
-    console.log( dates2)
+    // console.log( dates2)
     return dates1.some((date1) =>
-      dates2.some(
+      dates2.some (
         (date2) =>
           date1.getDate() === date2.getDate() &&
           date1.getMonth() === date2.getMonth() &&
@@ -80,6 +84,8 @@ export class CalendarComponent {
       )
     );
   }
+
+ 
 
  // Function para seleccionar la fecha
 selectDate(date: Date) {

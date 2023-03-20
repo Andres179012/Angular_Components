@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { CardmasonryComponent } from './cardmasonry/cardmasonry.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     CalendarComponent,
+    CardmasonryComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,55 @@
+<div class="max-w-[800px] m-auto">
+  <div class="md:columns-3 columns-1 gap-3">
+    <div
+      *ngFor="let items of cardItems"
+      class="h-auto bg-white rounded-lg inline-block shadow-xl my-2 md:w-[240px] w-full"
+    >
+    <div class="relative mt-3 flex justify-end mr-3">
+        <i class="fas fa-list p-2 text-[14px] text-white bg-blue-600 rounded-full"></i>
+    </div>
+      <div class="flex justify-center items-center flex-col px-4 pb-4">
+        <span class="text-[25px] font-bold">{{ items.modulo }}</span>
+        <!-- si el campo ingreso: false o es true cambiar de color al background del icono hacerlo con ngclass para disminuir el codigo-->
+        <div class="flex flex-col justify-center items-center">
+          <i
+            class="fas fa-{{
+              items.icon
+            }}  text-[30px] rounded-full p-2 text-white text-center"
+            [ngClass]="{
+              'bg-red-600': items.ingreso,
+              'bg-green-600': !items.ingreso
+            }"
+          >
+          </i>
+          <span
+            class="text-[24px] font-bold"
+            [ngClass]="{
+              'text-red-600': items.ingreso,
+              'text-green-600': !items.ingreso
+            }"
+            >$00.00</span
+          >
+          <span
+            class="text-[16px] font-bold"
+            [ngClass]="{
+              'text-red-600': items.ingreso,
+              'text-green-600': !items.ingreso
+            }"
+            >{{ items.labelModulo }}</span
+          >
+        </div>
+      </div>
+     <div class=" bg-gray-100 py-6 px-4">
+        <div
+        *ngFor="let parametro of items.dataParametros"
+        class="flex justify-between py-1"
+      >
+        <span class="text-[16px] font-bold text-gray-700">{{
+          parametro.titulo
+        }}</span>
+        <span class="text-[18px] font-bold text-blue-700">{{ parametro.value }}</span>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>

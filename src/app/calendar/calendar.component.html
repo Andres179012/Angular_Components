@@ -1,5 +1,8 @@
-<div class="p-4 bg-white rounded-lg shadow">
-  <div class="flex items-center justify-between mb-4">
+<div class="p-4  rounded-lg shadow bg-no-repeat bg-center bg-opacity-10 relative "
+
+>
+<img src="https://firebasestorage.googleapis.com/v0/b/cursosjavascript-f54e8.appspot.com/o/logo.png?alt=media&token=d0a134d5-0bbf-417a-a043-ef64626ead9e" class="absolute top-0 left-0 h-full object-contain w-[320px] opacity-20" alt="">
+  <div class="flex items-center justify-between mb-4 z-10 relative">
     <button
       class="p-2 border border-gray-400 rounded-lg"
       (click)="setMonth(-1)"
@@ -11,13 +14,13 @@
     <h2 class="text-lg font-bold text-gray-800">
       {{ date | date : "MMMM y" }}
     </h2>
-    <button class="p-2 border border-gray-400 rounded-lg" (click)="setMonth(1)">
+    <button class="p-2 border  border-gray-400 rounded-lg" (click)="setMonth(1)">
       <svg class="w-4 h-4 text-gray-400" viewBox="0 0 24 24">
         <path d="M5 12h14M12 5l7 7-7 7"></path>
       </svg>
     </button>
   </div>
-  <div class="grid grid-cols-7 gap-2">
+  <div class="grid grid-cols-7 gap-2 relative">
     <ng-container *ngFor="let day of days">
       <div class="text-sm font-bold text-center text-gray-600">{{ day }}</div>
     </ng-container>
