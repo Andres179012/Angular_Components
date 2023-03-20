@@ -20,6 +20,7 @@ export class CalendarComponent {
     new Date('2023-03-21'),
     new Date('2023-03-23'),
     new Date('2023-03-25'),
+    new Date('2023-03-31'),
   ];
 
   constructor() {
@@ -80,20 +81,22 @@ export class CalendarComponent {
     );
   }
 
- // Function to select a date
+ // Function para seleccionar la fecha
 selectDate(date: Date) {
-  // Find the index of the date in the preselectedDates array
+  // Verificar si la fecha ya está seleccionada
   const index = this.preselectedDates.findIndex(d => this.isSameDate([d], [date]));
-
-  if (index !== -1) {
-    // If the date is already in the preselectedDates array, remove it (deselect)
-    this.preselectedDates.splice(index, 1);
-  } else {
-    // If the date is not in the preselectedDates array, add it (select)
+  if (index === -1) {
+    // Si no está seleccionada, agregarla al array
     this.preselectedDates.push(date);
   }
-  
-  // Emit the updated preselectedDates array
+  else {
+    // Si ya está seleccionada, eliminarla del array
+    this.preselectedDates.splice(index, 1);
+  }
+
+  // Emitir el array de fechas seleccionadas
   this.selected.emit(this.preselectedDates);
+
 }
+
 }
