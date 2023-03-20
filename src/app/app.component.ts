@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, VERSION } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,7 @@ export class AppComponent {
   name = 'Food';
   description = 'This is a food';
 
+  selected = new EventEmitter<any>(); // declarar el tipo de la propiedad selected
 
   
 }

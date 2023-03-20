@@ -1,0 +1,36 @@
+<div class="bg-white rounded-lg shadow p-4">
+  <div class="flex justify-between items-center mb-4">
+    <button
+      class="border border-gray-400 rounded-lg p-2"
+      (click)="setMonth(-1)"
+    >
+      <svg class="w-4 h-4 text-gray-400" viewBox="0 0 24 24">
+        <path d="M19 12H5M12 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+    <h2 class="text-gray-800 font-bold text-lg">
+      {{ date | date : "MMMM y" }}
+    </h2>
+    <button class="border border-gray-400 rounded-lg p-2" (click)="setMonth(1)">
+      <svg class="w-4 h-4 text-gray-400" viewBox="0 0 24 24">
+        <path d="M5 12h14M12 5l7 7-7 7"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="grid grid-cols-7 gap-2">
+    <ng-container *ngFor="let day of days">
+      <div class="text-gray-600 text-sm font-bold text-center">{{ day }}</div>
+    </ng-container>
+    <ng-container *ngFor="let date of dates">
+      <button
+        class="text-sm text-center rounded-full py-[6px] px-2 font-semibold transition-colors duration-200 focus:outline-none hover:bg-gray-200"
+        [class.bg-gray-200]="!isSameMonth(date)"
+        [class.text-gray-400]="!isSameMonth(date)"
+        [class.text-gray-800]="isSameMonth(date)"
+        [class.bg-yellow-400]="isSameDate([date], preselectedDates)"
+      >
+        {{ date | date : "d" }}
+      </button>
+    </ng-container>
+  </div>
+</div>
