@@ -15,12 +15,12 @@ export class CalendarComponent {
 
   // Array con las fechas preestablecidas
   preselectedDates = [
-    new Date('2023-03-19'),
-    new Date('2023-03-20'),
-    new Date('2023-03-21'),
-    new Date('2023-03-23'),
-    new Date('2023-03-25'),
-    new Date('2023-03-31'),
+    new Date('2023-03-19T00:00:00.000-07:00'),
+    new Date('2023-03-20T00:00:00.000-07:00'),
+    new Date('2023-03-21T00:00:00.000-07:00'),
+    new Date('2023-03-23T00:00:00.000-07:00'),
+    new Date('2023-03-25T00:00:00.000-07:00'),
+    new Date('2023-03-31T00:00:00.000-07:00'),
   ];
 
   constructor() {
@@ -39,15 +39,14 @@ export class CalendarComponent {
 
   private getCalendarDays(date = new Date()): Date[] {
     const calendarStartTime =
-      this.getCalendarStartDay(date).getTime() +
-      60 * 60 * 2 * 1000; /* add 2 hours for day light saving time adjustment */
+      this.getCalendarStartDay(date).getTime() /* add 2 hours for day light saving time adjustment */
 
     return this.range(0, 41).map((num) => {
       const date = new Date(calendarStartTime + DAY_MS * num);
-      // Verificar si la fecha actual está en el array de fechas preestablecidas
-      if (this.isSameDate([date], this.preselectedDates)) {
-        date.setHours(12); // Marcar la fecha como seleccionada
-      }
+      // // Verificar si la fecha actual está en el array de fechas preestablecidas
+      // if (this.isSameDate([date], this.preselectedDates)) {
+      //   date.setHours(12); // Marcar la fecha como seleccionada
+      // }
       return date;
     });
   }
@@ -71,6 +70,7 @@ export class CalendarComponent {
 
   // Función para verificar si dos arrays de fechas tienen alguna fecha en común
   public isSameDate(dates1: Date[], dates2: Date[], ): boolean {
+    console.log( dates2)
     return dates1.some((date1) =>
       dates2.some(
         (date2) =>
