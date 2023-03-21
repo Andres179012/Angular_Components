@@ -1,12 +1,12 @@
 <div class="flex flex-col h-screen items-end justify-end">
   <app-sidebar>
     <div class="overflow-scroll h-[100vh] flex">
-      <div class="md:w-[50%] flex justify-start items-center">
-        <app-calendar></app-calendar>
-      </div>
-      <div>
+      <div class="md:w-[100%] flex justify-start items-center flex-col">
+        <app-calendar [date]="date" [preselectedDates]="preselectedDates"
+        ></app-calendar>
         <app-cardmasonry></app-cardmasonry>
       </div>
+      <app-cardoperario></app-cardoperario>
     </div>
   </app-sidebar>
 </div>

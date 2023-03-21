@@ -1,0 +1,91 @@
+
+.card:before {
+  content: "";
+  z-index: 99;
+  position: absolute;
+  top: -10px;
+  left: 32px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  background-color: #e6e5e1;
+}
+.card:after {
+  content: "";
+  z-index: 99;
+  position: absolute;
+  bottom: -10px;
+  left: 32px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  background-color: #e6e5e1;
+}
+
+.card .fa-arrow-right {
+  z-index: 100;
+  position: absolute;
+  right: 75px;
+  bottom: 25px;
+  font-size: 40px;
+  cursor: pointer;
+}
+ .card p {
+  z-index: 99;
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  height: 100px;
+  color: #333;
+  opacity: 0.7;
+  letter-spacing: 1px;
+  writing-mode: vertical-rl;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.card button {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 30px;
+  height: 30px;
+  
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  mix-blend-mode: hard-light;
+}
+.card button i {
+  font-size: 3rem;
+}
+.card:hover button {
+  transform: scale(16.5);
+}
+.card:hover p {
+  color: #fff;
+}
+.card:hover .pic {
+  filter: grayscale(0);
+}
+
+.dr {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 100px;
+}
+
+.fa-arrow-right {
+  color: black;
+  display: none;
+}
+
+.card:hover .fa-arrow-right {
+  color: white;
+  display: block;
+}

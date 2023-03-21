@@ -32,6 +32,7 @@
         [class.text-gray-400]="!isSameMonth(date)"
         [class.text-gray-800]="isSameMonth(date)"
         [ngClass]="{'bg-orange-700 text-white': isSameDate([date], preselectedDates)}"
+ 
       >
         {{ date | date : "d" }}
       </button>

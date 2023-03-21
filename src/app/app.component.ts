@@ -13,5 +13,14 @@ export class AppComponent {
 
   selected = new EventEmitter<any>(); // declarar el tipo de la propiedad selected
 
-  
+  // Array con las fechas preestablecidas
+  preselectedDates = [
+    new Date('2023-03-19T00:00:00.000-07:00'),
+    new Date('2023-03-20T00:00:00.000-07:00'),
+    new Date('2023-03-21T00:00:00.000-07:00'),
+    new Date('2023-03-23T00:00:00.000-07:00'),
+    new Date('2023-03-25T00:00:00.000-07:00'),
+    new Date('2023-03-31T00:00:00.000-07:00'),
+  ];
+  date = new Date();
 }

@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input, OnInit } from '@angular/core';
 
 const DAY_MS = 60 * 60 * 24 * 1000;
 
@@ -7,15 +7,15 @@ const DAY_MS = 60 * 60 * 24 * 1000;
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.css'],
 })
-export class CalendarComponent {
-  dates: Date[];
+export class CalendarComponent implements OnInit {
+  dates: Date[] = [];
   days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  date = new Date();
+  @Input() date = new Date();
   @Output() selected = new EventEmitter<Date[]>(); // Cambiar el tipo de EventEmitter a Date[]
 
 
   // Array con las fechas preestablecidas
-  preselectedDates = [
+  @Input() preselectedDates = [
     new Date('2023-03-19T00:00:00.000-07:00'),
     new Date('2023-03-20T00:00:00.000-07:00'),
     new Date('2023-03-21T00:00:00.000-07:00'),
@@ -25,7 +25,11 @@ export class CalendarComponent {
   ];
 
   constructor() {
-    this.dates = this.getCalendarDays(this.date);
+   
+  }
+  
+  ngOnInit(): void {
+     this.dates = this.getCalendarDays(this.date);
   }
 
 
@@ -74,7 +78,7 @@ export class CalendarComponent {
 
   // Función para verificar si dos arrays de fechas tienen alguna fecha en común
   public isSameDate(dates1: Date[], dates2: Date[], ): boolean {
-    // console.log( dates2)
+    console.log( dates2)
     return dates1.some((date1) =>
       dates2.some (
         (date2) =>
@@ -84,8 +88,6 @@ export class CalendarComponent {
       )
     );
   }
-
- 
 
  // Function para seleccionar la fecha
 selectDate(date: Date) {
