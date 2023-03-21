@@ -7,6 +7,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { CardmasonryComponent } from './cardmasonry/cardmasonry.component';
 import { CardoperarioComponent } from './cardoperario/cardoperario.component';
+import { CardfoodComponent } from './cardfood/cardfood.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { CardoperarioComponent } from './cardoperario/cardoperario.component';
     CalendarComponent,
     CardmasonryComponent,
     CardoperarioComponent,
+    CardfoodComponent,
   ],
   imports: [
     BrowserModule,
