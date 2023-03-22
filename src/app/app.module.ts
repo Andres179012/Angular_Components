@@ -8,6 +8,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { CardmasonryComponent } from './cardmasonry/cardmasonry.component';
 import { CardoperarioComponent } from './cardoperario/cardoperario.component';
 import { CardfoodComponent } from './cardfood/cardfood.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CardfoodComponent } from './cardfood/cardfood.component';
     CardmasonryComponent,
     CardoperarioComponent,
     CardfoodComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

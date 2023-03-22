@@ -1,15 +1,23 @@
 <app-sidebar>
-  <div class="flex md:w-[80%] mx-auto">
-    <div class="flex justify-start items-center flex-wrap">
+  <div class="flex justify-end md:w-[100%]  bg-[#274392] md:p-4 p-2">
+   <div class="w-full bg-white rounded-[30px] flex md:w-[96%] md:p-10 p-2 md:flex-row flex-col">
+    <div class="flex justify-start items-center flex-wrap md:flex-col flex-col">
       <app-calendar
         [date]="date"
         [preselectedDates]="preselectedDates"
       ></app-calendar>
       <app-cardmasonry></app-cardmasonry>
     </div>
-    <div class="flex flex-col">
+    <div class="flex md:flex-col flex-col">
       <app-cardfood></app-cardfood>
       <app-cardoperario></app-cardoperario>
     </div>
+   </div>
+  
   </div>
 </app-sidebar>
+
+<!-- <div>
+  <app-login></app-login>
+ </div> -->
+

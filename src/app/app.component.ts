@@ -24,4 +24,11 @@ export class AppComponent {
     new Date('2023-03-31T00:00:00.000-07:00'),
   ];
   date = new Date();
+
+  isOpen = false;
+
+  toggleSidebar() {
+    this.isOpen = !this.isOpen;
+    localStorage.setItem('isOpen', String(this.isOpen));
+  }
 }

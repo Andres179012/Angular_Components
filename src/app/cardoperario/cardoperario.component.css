@@ -24,14 +24,7 @@
   background-color: #e6e5e1;
 }
 
-.card .fa-arrow-right {
-  z-index: 100;
-  position: absolute;
-  right: 75px;
-  bottom: 25px;
-  font-size: 40px;
-  cursor: pointer;
-}
+
  .card p {
   z-index: 99;
   position: absolute;
@@ -46,7 +39,7 @@
   transition: all 0.2s ease;
 }
 
-.card button {
+.card .overlay_hover {
   position: absolute;
   right: 14px;
   bottom: 14px;
@@ -60,10 +53,10 @@
   transition: all 0.3s ease;
   mix-blend-mode: hard-light;
 }
-.card button i {
+.card .overlay_hover i {
   font-size: 3rem;
 }
-.card:hover button {
+.card:hover .overlay_hover {
   transform: scale(16.5);
 }
 .card:hover p {
@@ -80,12 +73,18 @@
   width: 100px;
 }
 
-.fa-arrow-right {
-  color: black;
-  display: none;
+.card .content_buttons {
+  display: none !important;
 }
 
-.card:hover .fa-arrow-right {
-  color: white;
-  display: block;
+.card:hover .content_buttons {
+  display: block !important;
+  color: white !important;
 }
+
+.card:hover .content_buttons button {
+ background: white;
+ color: blue;
+ gap: 10px;
+}
+

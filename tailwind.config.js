@@ -4,15 +4,7 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
-    extend: {
-      transitionProperty: {
-        'translate-x': 'transform',
-      },
-      translate: {
-        '0': '0',
-        full: '-75%',
-      },
-    },
+    extend: {},
   },
   plugins: [],
   important: true,
