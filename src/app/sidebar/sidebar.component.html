@@ -1,77 +1,67 @@
-<div class="flex w-full">
-  <div
-    class="fixed z-50 md:w-[18%] w-[65%] h-[100%] bg-[#274392] text-white transition duration-300 ease-in-out transform pt-4"
-    [ngClass]="{
-      'md:translate-x-[0px]': isOpen,
-      'md:translate-x-[-200px]': !isOpen,
-      'translate-x-[0px]': isOpen,
-      'translate-x-[-239px]': !isOpen
-    }"
-    [class.translate-x-0]="isOpen"
-    [class.translate-x-full]="!isOpen"
+<div class="flex">
+  <button
+    class="md:hidden absolute flex items-center px-[5px] py-1 left-4 top-3 bg-red-600 text-white hover:bg-gray-200 hover:text-[#274392] rounded-full transition duration-300 ease-in-out"
+    (click)="toggleSidebar()"
   >
-    <div class="flex items-center justify-between p-4 border-b">
-      <img src="../../assets/img/rdg.png" alt="Logo" class="w-[150px]" />
-      <button
-        class="text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900"
-        (click)="toggleSidebar()"
-      >
-        <ng-container *ngIf="isOpen; else closedSidebar">
-          <svg class="h-6 w-6 ml-2 fill-current text-white" viewBox="0 0 24 24">
-            <path
-              d="M6 18L18 6M6 6l12 12"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </ng-container>
-        <ng-template #closedSidebar>
-          <div class="flex">
-            <div class="flex md:mr-[-40px]">
-              <img
-              src="../../assets/img/logoRD.png"
-              alt="Logo"
-              class="w-12 h-12 object-contain"
-            />
-            <div
-              class="flex items-center p-2 text-white rounded-lg bg-[#274392] transition duration-300 ease-in-out md:mr-0 mr-[-130px]"
+    <i class="p-2 text-[20px] fas fa-bars"></i>
+  </button>
+  <div
+    class="md:overflow-hidden md:ml-[0px] ml-[-19%] transition duration-300 ease-in-out z-[999]"
+    [ngClass]="{ 'fixed': isOpen, 'ml-[-19%]': !isOpen }"
+  >
+    <nav
+      class="min-h-screen bg-[#274392] relative"
+      [ngClass]="{ 'w-[250px]': isOpen, 'w-[75px]': !isOpen }"
+    >
+      <div class="px-2 py-6 flex items-start flex-col relative">
+        <div
+          class="absolute right-[-20px] top-1 z-[999] bg-indigo-600 rounded-full"
+          [ngClass]="{ 'right-[40px]': isOpen, 'right-[22px]': !isOpen }"
+        >
+          <ng-container *ngIf="isOpen; else closedSidebar">
+            <button
+              class="flex items-center px-[5px] py-1 bg-red-600 text-white hover:bg-gray-200 hover:text-[#274392] rounded-full transition duration-300 ease-in-out"
+              (click)="toggleSidebar()"
             >
-              <i class="fas fa-bars text-[24px]"></i>
-            </div>
-            </div>
-          </div>
-        </ng-template>
-        
-      </button>
-    </div>
-    <div class="p-4">
-      <ng-container *ngIf="isOpen">
-        <div class="flex flex-col gap-4">
-          <a
-            *ngFor="let item of menuItems"
-            class="flex items-center px-2 py-3 text-white hover:bg-gray-200 hover:text-[#274392] rounded-lg transition duration-300 ease-in-out"
-            (click)="toggleSidebar()"
+              <i class="text-[18px] fas fa-angle-double-left"></i>
+            </button>
+          </ng-container>
+          <ng-template #closedSidebar>
+            <button
+              class="flex items-center px-[5px] py-1 bg-red-600 text-white hover:bg-gray-200 hover:text-[#274392] rounded-full transition duration-300 ease-in-out"
+              (click)="toggleSidebar()"
             >
-            <i class="fas fa-{{ item.icon }}"></i>
-            <span class="mx-3 font-medium">{{ item.name }}</span>
-          </a>
+              <i class="text-[18px] fas fa-angle-double-right"></i>
+            </button>
+          </ng-template>
         </div>
-      </ng-container>
-      <ng-container *ngIf="!isOpen">
-        <div class=" md:flex justify-end flex-col text-end items-end gap-4  hidden">
-          <a
-            *ngFor="let item of menuItems"
-            class="flex items-center p-2 text-white bg-[#3d5bac] hover:bg-gray-200 hover:text-[#274392] rounded-lg transition duration-300 ease-in-out"
+        <img
+          class="ml-3 mt-6"
+          [src]="
+            isOpen === false ? 'assets/img/logoRD.png' : 'assets/img/rdg.png'
+          "
+          [ngClass]="isOpen === false ? 'w-11' : 'w-[170px]'"
+          alt="logo"
+        />
+      </div>
+      <div class="flex flex-col gap-4 mx-4 w-full relative">
+        <a
+          *ngFor="let item of menuItems"
+          class="flex items-center px-[12px] py-2 text-white hover:bg-gray-200 hover:text-[#274392] rounded-lg transition duration-300 ease-in-out"
+          [ngClass]="{ 'w-[180px]': isOpen, 'w-[45px]': !isOpen }"
+          [routerLink]="item.link"
+        >
+          <i class="text-[18px] fas fa-{{ item.icon }}"></i>
+          <span
+            class="mx-3 font-medium"
+            [ngClass]="{ block: isOpen, hidden: !isOpen }"
+            >{{ item.name }}</span
           >
-            <i class="fas fa-{{ item.icon }}"></i>
-          </a>
-        </div>
-      </ng-container>
-    </div>
+        </a>
+      </div>
+    </nav>
   </div>
-  <div class="w-full">
+  <div class="w-[100%] h-[100vh] content_scroll">
     <ng-content></ng-content>
   </div>
 </div>

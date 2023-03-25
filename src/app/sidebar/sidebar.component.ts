@@ -19,6 +19,7 @@ export class SidebarComponent implements OnInit {
   toggleSidebar() {
     this.isOpen = !this.isOpen;
     localStorage.setItem('isOpen', String(this.isOpen));
+    console.log(this.isOpen);
   }
 
   menuItems = MENU_ITEMS;
@@ -26,8 +27,8 @@ export class SidebarComponent implements OnInit {
 }
 
 const MENU_ITEMS = [
-  { icon:'home',name: 'Home', link: '/inicio' },
-  { icon:'chart-area',name: 'Dashboard', link: '/acerca-de' },
-  { icon:'tools',name: 'Settings', link: '/servicios' },
+  { icon:'home',name: 'Home', link: '/login' },
+  { icon:'chart-area',name: 'Dashboard', link: '/login' },
+  { icon:'tools',name: 'Settings', link: '/login' },
 ];
 
