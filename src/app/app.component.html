@@ -1,8 +1,8 @@
 <app-sidebar>
   <div class="flex justify-end  bg-[#274392] md:py-2 md:pr-2  p-2 w-[100%] h-full">
-   <div class="w-full bg-white rounded-[30px] flex md:p-2 p-2 md:flex-col flex-col h-[97vh] overflow-hidden flex-wrap pt-[50px]">
+   <div class="w-full bg-gray-100 rounded-[30px] flex md:p-2 p-2 md:flex-col flex-col h-[97vh] overflow-hidden flex-wrap pt-[50px]">
     <div class="overflow-y-scroll content_scroll">
-      <div class="flex justify-start items-center flex-wrap md:flex-col flex-col">
+      <!-- <div class="flex justify-start items-center flex-wrap md:flex-col flex-col">
         <app-calendar
           [date]="date"
           [preselectedDates]="preselectedDates"
@@ -12,6 +12,59 @@
       <div class="flex md:flex-col flex-col">
         <app-cardfood></app-cardfood>
         <app-cardoperario></app-cardoperario>
+      </div> -->
+      <div class="flex gap-4 p-4 w-full mx-auto flex-wrap">
+        <div class="flex flex-col gap-4">
+          <div
+          class="w-auto bg-white rounded-xl shadow-md border-l-[10px] border-green-600 flex justify-center items-start flex-col py-4 px-8 hover:bg-green-50 transition duration-500 ease-in-out cursor-pointer"
+        >
+
+        
+          <span class="text-[20px] font-bold py-2">Ventas del Día</span>
+          <div class="flex gap-10">
+            <div class="flex flex-col text-start">
+              <span class="text-[18px] font-bold text-indigo-600"
+                >Ventas del Día</span
+              >
+              <span class="text-[18px] font-bold">#1</span>
+            </div>
+            <div class="flex flex-col text-start">
+              <span class="text-[18px] font-bold text-indigo-600">Total</span>
+              <span class="text-[18px] font-bold">$ 200.00</span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="w-auto bg-white rounded-xl shadow-md border-l-[10px] border-blue-600 flex justify-center items-start flex-col py-6 px-8 hover:bg-blue-50 transition duration-500 ease-in-out cursor-pointer"
+        >
+          <span class="text-[20px] font-bold py-2">#Total</span>
+          <div class="grid grid-cols-2 gap-y-4 gap-x-6">
+            <div class="flex flex-col text-start">
+              <span class="text-[18px] font-bold text-indigo-600">#Pendiente</span>
+              <span class="text-[18px] font-bold">$ 200.00</span>
+            </div>
+            <div class="flex flex-col text-start">
+              <span class="text-[18px] font-bold text-indigo-600">#Aprobado</span>
+              <span class="text-[18px] font-bold">$ 200.00</span>
+            </div>
+            <div class="flex flex-col text-start">
+              <span class="text-[18px] font-bold text-indigo-600">#Pagado</span>
+              <span class="text-[18px] font-bold">$ 200.00</span>
+            </div>
+            <div class="flex flex-col text-start">
+              <span class="text-[18px] font-bold text-indigo-600">#Denegado</span>
+              <span class="text-[18px] font-bold">$ 200.00</span>
+            </div>
+            <div class="flex flex-col text-start">
+              <span class="text-[18px] font-bold text-indigo-600">Total</span>
+              <span class="text-[18px] font-bold">$ 200.00</span>
+            </div>
+          </div>
+        </div>
+         </div>
+         <div class="bg-white md:w-[65%] p-2 rounded-xl flex justify-center items-center">
+          <img src="assets/img/chart.png" alt="" />
+         </div>
       </div>
     </div>
    </div>
